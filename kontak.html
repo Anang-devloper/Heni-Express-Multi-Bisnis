@@ -1,10 +1,211 @@
-<section class="section">
-<div class="glass">
-<h1>Daftar Agen Sekarang</h1>
-<input type="text" id="nama" placeholder="Nama Lengkap">
-<textarea id="alamat" placeholder="Alamat Rumah"></textarea>
-<input type="text" id="telepon" placeholder="Nomor Telepon">
-<input type="email" id="email" placeholder="Email">
-<button onclick="kirimWA()">Kirim via WhatsApp</button>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Layanan & Pengiriman</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+body {
+    background: #ffc0cb;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    width: 100%;
+    max-width: 800px;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+select, input, textarea, button {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+button {
+    background: hotpink;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: deeppink;
+}
+
+.hidden {
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Form Layanan</h1>
+
+<select id="layanan" onchange="cekLayanan()">
+<option value="">-- Pilih Layanan --</option>
+<option value="paket">Kirim Paket / Cargo</option>
+<option value="pulsa">Isi Pulsa</option>
+<option value="data">Isi Pulsa Data</option>
+<option value="token">Isi Token Listrik</option>
+<option value="pdam">Bayar PDAM</option>
+<option value="kereta">Beli Tiket Kereta</option>
+<option value="pesawat">Beli Tiket Pesawat</option>
+<option value="tour">Tour & Travel</option>
+</select>
+
+<!-- FORM SEDERHANA -->
+<div id="formSederhana" class="hidden">
+<input type="text" id="namaSimple" placeholder="Nama Lengkap">
+<textarea id="alamatSimple" placeholder="Alamat"></textarea>
+<input type="text" id="teleponSimple" placeholder="Nomor Telepon">
 </div>
-</section>
+
+<!-- FORM PAKET -->
+<div id="formPaket" class="hidden">
+
+<select id="jenisKirim">
+<option value="">-- Pilih Jenis Kirim --</option>
+<option value="Paket">Kirim Paket</option>
+<option value="Cargo">Kirim Cargo</option>
+</select>
+
+<h3>Data Pengirim</h3>
+<input type="text" id="namaPengirim" placeholder="Nama Pengirim">
+<textarea id="alamatPengirim" placeholder="Alamat Pengirim"></textarea>
+<input type="email" id="emailPengirim" placeholder="Email Pengirim">
+<input type="text" id="telpPengirim" placeholder="Nomor Telepon Pengirim">
+
+<h3>Data Penerima</h3>
+<input type="text" id="namaPenerima" placeholder="Nama Penerima">
+<textarea id="alamatPenerima" placeholder="Alamat Penerima"></textarea>
+<input type="text" id="telpPenerima" placeholder="Nomor Telepon Penerima">
+
+<select id="ekspedisi">
+<option value="">-- Pilih Ekspedisi --</option>
+<option value="JNE">JNE</option>
+<option value="J&T">J&T</option>
+<option value="SiCepat">SiCepat</option>
+<option value="AnterAja">AnterAja</option>
+<option value="TIKI">TIKI</option>
+<option value="Pos Indonesia">Pos Indonesia</option>
+<option value="Ninja Xpress">Ninja Xpress</option>
+<option value="Wahana">Wahana</option>
+</select>
+
+</div>
+
+<button onclick="kirimWA()">Kirim ke WhatsApp</button>
+
+<hr>
+
+<h2>Cek Resi & Ongkir</h2>
+
+<select id="cekEkspedisi">
+<option value="">-- Pilih Ekspedisi --</option>
+<option value="jne">JNE</option>
+<option value="jnt">J&T</option>
+<option value="sicepat">SiCepat</option>
+<option value="anteraja">AnterAja</option>
+<option value="tiki">TIKI</option>
+<option value="pos">Pos Indonesia</option>
+<option value="ninja">Ninja Xpress</option>
+<option value="wahana">Wahana</option>
+</select>
+
+<button onclick="cekResi()">Cek Resi</button>
+<button onclick="cekOngkir()">Cek Ongkir</button>
+
+</div>
+
+<script>
+function cekLayanan() {
+    var layanan = document.getElementById("layanan").value;
+    document.getElementById("formSederhana").classList.add("hidden");
+    document.getElementById("formPaket").classList.add("hidden");
+
+    if (layanan == "paket") {
+        document.getElementById("formPaket").classList.remove("hidden");
+    } else if (layanan != "") {
+        document.getElementById("formSederhana").classList.remove("hidden");
+    }
+}
+
+function kirimWA() {
+    var layanan = document.getElementById("layanan").value;
+    var nomor = "6285366573886"; // GANTI NOMOR ANDA
+    var pesan = "";
+
+    if (layanan == "paket") {
+        pesan = "LAYANAN KIRIM PAKET%0A"
+        + "Jenis: " + jenisKirim.value + "%0A"
+        + "Ekspedisi: " + ekspedisi.value + "%0A%0A"
+        + "Pengirim:%0A"
+        + namaPengirim.value + "%0A"
+        + alamatPengirim.value + "%0A"
+        + emailPengirim.value + "%0A"
+        + telpPengirim.value + "%0A%0A"
+        + "Penerima:%0A"
+        + namaPenerima.value + "%0A"
+        + alamatPenerima.value + "%0A"
+        + telpPenerima.value;
+    } else {
+        pesan = "LAYANAN: " + layanan + "%0A"
+        + "Nama: " + namaSimple.value + "%0A"
+        + "Alamat: " + alamatSimple.value + "%0A"
+        + "Telepon: " + teleponSimple.value;
+    }
+
+    window.open("https://wa.me/" + nomor + "?text=" + pesan, "_blank");
+}
+
+function cekResi() {
+    var e = cekEkspedisi.value;
+    var link = {
+        jne:"https://www.jne.co.id",
+        jnt:"https://jet.co.id",
+        sicepat:"https://www.sicepat.com",
+        anteraja:"https://anteraja.id",
+        tiki:"https://tiki.id",
+        pos:"https://www.posindonesia.co.id",
+        ninja:"https://www.ninjaxpress.co",
+        wahana:"https://www.wahana.com"
+    };
+    window.open(link[e], "_blank");
+}
+
+function cekOngkir() {
+    cekResi();
+}
+</script>
+
+</body>
+</html>
