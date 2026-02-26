@@ -1,9 +1,207 @@
-<section class="section">
-<div class="glass">
-<h1>Paket Usaha</h1>
-<p>✔ Agen Travel Tiket Pesawat<br>
-✔ Tiket Kereta Api & Kapal Pelni<br>
-✔ PPOB & Pulsa All Operator<br>
-✔ Booking Hotel & Tour</p>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paket Usaha Travel & PPOB</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover;
+    position:relative;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero h1{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+.btn{
+    background:#00c6ff;
+    padding:12px 25px;
+    border-radius:30px;
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#0072ff;
+}
+
+/* SECTION */
+.section{
+    padding:60px 20px;
+    text-align:center;
+}
+
+.glass{
+    max-width:1100px;
+    margin:auto;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(15px);
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 8px 32px rgba(0,0,0,0.3);
+}
+
+.features{
+    margin-top:20px;
+    line-height:30px;
+}
+
+.logo-grid{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
+    gap:25px;
+    align-items:center;
+}
+
+.logo-grid img{
+    width:100%;
+    max-width:110px;
+    background:white;
+    padding:10px;
+    border-radius:15px;
+    transition:0.3s;
+}
+
+.logo-grid img:hover{
+    transform:scale(1.1);
+}
+
+/* WA FLOAT */
+.wa-float{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    padding:15px 18px;
+    border-radius:50%;
+    font-size:22px;
+    text-decoration:none;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#111;
+    font-size:14px;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<h1>Paket Usaha Travel & PPOB</h1>
+<p>Buka Usaha Tiket Pesawat, Kereta, Pulsa, PDAM & Ekspedisi Dalam 1 Sistem</p>
+<a href="https://wa.me/6281234567890" class="btn">Daftar Sekarang</a>
 </div>
 </section>
+
+<!-- PAKET USAHA -->
+<section class="section">
+<div class="glass">
+
+<h2>Layanan Kami</h2>
+
+<div class="features">
+✔ Tiket Pesawat Domestik & Internasional <br>
+✔ Tiket Kereta Api & Kapal Pelni <br>
+✔ PPOB & Pulsa All Operator <br>
+✔ Pembayaran PDAM & Listrik <br>
+✔ Booking Hotel & Tour <br>
+✔ Ekspedisi & Pengiriman Barang
+</div>
+
+<div class="logo-grid">
+
+<!-- EKSPEDISI -->
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/92/JNE_Logo.svg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/J%26T_Express_logo.svg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/36/SiCepat_Ekspres_logo.svg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Pos_Indonesia.svg">
+
+<!-- KERETA -->
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/30/KAI_Logo.svg">
+
+<!-- PESAWAT -->
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Garuda_Indonesia_Logo.svg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Lion_Air_Logo.svg">
+
+<!-- PULSA -->
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Telkomsel_2021_icon.svg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Indosat_Ooredoo_Hutchison_logo.svg">
+
+<!-- PDAM -->
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/PDAM_logo.svg">
+
+<!-- TOUR -->
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Traveloka_Primary_Logo.svg">
+
+</div>
+
+</div>
+</section>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/6281234567890" class="wa-float">💬</a>
+
+<footer>
+© 2026 Paket Usaha Travel & PPOB | All Rights Reserved
+</footer>
+
+</body>
+</html>
